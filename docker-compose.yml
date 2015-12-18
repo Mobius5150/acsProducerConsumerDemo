@@ -1,0 +1,14 @@
+producer:
+  build: producer
+  ports:
+    - "80"
+  volumes:
+    - ./producer:/src
+aggregator:
+  build: aggregator
+  ports:
+    - "80"
+  links:
+    - producer
+  volumes:
+    - ./aggregator:/src
