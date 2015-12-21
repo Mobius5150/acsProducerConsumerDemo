@@ -12,3 +12,11 @@ aggregator:
     - producer
   volumes:
     - ./aggregator:/src
+webclient:
+  build: webclient
+  ports:
+    - "80"
+  links:
+    - aggregator
+  volumes:
+    - ./webclient:/src
