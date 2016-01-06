@@ -26,9 +26,9 @@ DataAggregator.prototype.addData = function (data) {
 
 DataAggregator.prototype._trimOldData = function() {
     var cutoffDate = new Date();
-    cutoffDate.setMinutes(-this.aggregateMinutes);
+    cutoffDate.setMinutes(cutoffDate.getMinutes()-this.aggregateMinutes);
     var cutoff = cutoffDate.getTime();
-    while (this._data.length > 0 && this._data[0].time.getTime() < cutoff) {
+    while (this._data.length > 0 && this._data[0].time < cutoffDate) {
         this._data.splice(0, 1);
         this._arrivalTimeDiffs.splice(0, 1);
     }
