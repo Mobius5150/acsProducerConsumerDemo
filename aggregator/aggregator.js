@@ -30,6 +30,6 @@ client.on('connect', function (socket) {
 });
 
 client.on('data', function DataReceived(data) {
-    console.log('Received data from producer: %s with time %s', data.data, new Date(data.time).getTime());
+    console.log('Received data from producer: %s', data.data);
     aggregator.addData({ time: new Date(data.time), data: data.data });
 });
