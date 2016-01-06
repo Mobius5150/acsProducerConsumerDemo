@@ -28,9 +28,7 @@ DataAggregator.prototype._trimOldData = function() {
     var cutoffDate = new Date();
     cutoffDate.setMinutes(-this.aggregateMinutes);
     var cutoff = cutoffDate.getTime();
-    console.log("Cutting off after %d", cutoff);
     while (this._data.length > 0 && this._data[0].time.getTime() < cutoff) {
-        console.log("Remove entry with time %d", this._data[0].time);
         this._data.splice(0, 1);
         this._arrivalTimeDiffs.splice(0, 1);
     }
